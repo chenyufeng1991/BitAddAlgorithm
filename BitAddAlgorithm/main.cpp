@@ -28,13 +28,14 @@ int main(int argc, const char * argv[])
 int BitAdd(int a, int b)
 {
     int result; // 结果
+    int isFlow; // 进位
 
-    result = a ^ b; // 没有进位
-    int isFlow = a & b; // 判断有没有进位
+    result = a ^ b; // 没有进位的结果
+    isFlow = a & b; // 判断有没有进位，在每一次执行异或加法操作前都要进行判断
     while (isFlow)
     {
         int temp_a = result;
-        int temp_b = isFlow<<1; //
+        int temp_b = isFlow<<1; // 需要加上的进位值
 
         result = temp_a ^ temp_b;
         isFlow = temp_a & temp_b;
