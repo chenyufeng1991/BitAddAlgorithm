@@ -19,7 +19,7 @@ int BitAdd(int a, int b);
 
 int main(int argc, const char * argv[])
 {
-    int result = BitAdd(4, 4);
+    int result = BitAdd(1, 7);
     cout << result;
 
     return 0;
@@ -34,9 +34,9 @@ int BitAdd(int a, int b)
     while (isFlow)
     {
         int temp_a = result;
-        int temp_b = isFlow;
+        int temp_b = isFlow<<1; //
 
-        result = temp_a ^ (temp_b << 1);
+        result = temp_a ^ temp_b;
         isFlow = temp_a & temp_b;
     }
 
